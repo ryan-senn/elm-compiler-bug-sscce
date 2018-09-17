@@ -1,9 +1,7 @@
 module Toasters.Internal exposing
     ( Msg
     , Toaster
-    , add
     , init
-    , subscription
     , update
     , view
     )
@@ -11,7 +9,6 @@ module Toasters.Internal exposing
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (..)
 import Html.Styled.Events exposing (..)
-import Time
 import Toasters.Color exposing (Color)
 import Toasters.Css as Css
 
@@ -59,21 +56,6 @@ tick toaster toasters =
 
         False ->
             List.append toasters [ { toaster | ticks = toaster.ticks + 1 } ]
-
-
-subscription : List Toaster -> Sub Msg
-subscription toasters =
-    case List.isEmpty toasters of
-        False ->
-            Time.every 50 (always Tick)
-
-        True ->
-            Sub.none
-
-
-add : Color -> String -> List Toaster -> List Toaster
-add color message toasters =
-    initialToaster color message :: toasters
 
 
 view : List Toaster -> Html Msg
