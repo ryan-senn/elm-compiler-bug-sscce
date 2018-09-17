@@ -1,22 +1,22 @@
-module Toasters exposing (Msg)
+module Toasters exposing (Msg, InternalMsg)
 
-{-| Module to add Toasters to your app
+{-| Test nested Union Types
 
 
-# Initialise and update
+# Msgs
 
-@docs Msg
+@docs Msg, InternalMsg
 
 -}
 
 import Toasters.Internal as Internal
 
 
-{-| Add a Toasters.Msg to your Msg.
-
-    type MyMsg
-        = ToastersMsg Toasters.Msg
-
--}
+{-| -}
 type Msg
+    = NoOp
+
+
+{-| -}
+type InternalMsg
     = InternalMsg Internal.Msg
