@@ -1,25 +1,5 @@
-module Toasters.Internal exposing
-    ( Msg
-    , Toaster
-    , init
-    )
-
-
-type alias Toaster =
-    { message : String
-    }
-
-
-initialToaster : String -> Toaster
-initialToaster message =
-    { message = message
-    }
+module Toasters.Internal exposing (Msg)
 
 
 type Msg
     = NoOp
-
-
-init : List Toaster
-init =
-    []
