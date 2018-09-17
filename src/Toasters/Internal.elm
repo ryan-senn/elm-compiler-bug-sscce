@@ -6,24 +6,20 @@ module Toasters.Internal exposing
     , view
     )
 
-import Html.Styled exposing (..)
-import Html.Styled.Attributes exposing (..)
-import Html.Styled.Events exposing (..)
-import Toasters.Color exposing (Color)
-import Toasters.Css as Css
+import Html exposing (..)
+import Html.Attributes exposing (..)
+import Html.Events exposing (..)
 
 
 type alias Toaster =
-    { color : Color
-    , message : String
+    { message : String
     , ticks : Int
     }
 
 
-initialToaster : Color -> String -> Toaster
-initialToaster color message =
-    { color = color
-    , message = message
+initialToaster : String -> Toaster
+initialToaster message =
+    { message = message
     , ticks = 0
     }
 
@@ -61,26 +57,18 @@ tick toaster toasters =
 view : List Toaster -> Html Msg
 view toasters =
     div
-        [ Css.relativeContainer ]
-        [ div
-            [ Css.absoluteContainer ]
-            [ div
-                [ Css.fixedContainer ]
-                (List.map item toasters)
-            ]
-        ]
+        []
+        (List.map item toasters)
 
 
 item : Toaster -> Html Msg
 item toaster =
     div
-        [ Css.toaster toaster.color toaster.ticks
-        , onClick <| Close toaster
-        ]
+        [ onClick <| Close toaster]
         [ div
-            [ Css.toasterMessage ]
+            []
             [ text toaster.message ]
         , div
-            [ Css.timerBar toaster.color toaster.ticks ]
             []
+            [ text <| String.fromInt toaster.ticks ]
         ]

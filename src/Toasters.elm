@@ -18,8 +18,6 @@ module Toasters exposing
 -}
 
 import Html exposing (Html)
-import Html.Styled exposing (toUnstyled)
-import Toasters.Color exposing (Color(..))
 import Toasters.Internal as Internal
 
 
@@ -85,4 +83,4 @@ update (InternalMsg internalMsg) (Model toasters) =
 -}
 view : Model -> Html Msg
 view (Model toasters) =
-    Internal.view toasters |> toUnstyled |> Html.map InternalMsg
+    Internal.view toasters |> Html.map InternalMsg
