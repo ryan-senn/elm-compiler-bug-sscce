@@ -2,7 +2,6 @@ module Toasters.Internal exposing
     ( Msg
     , Toaster
     , init
-    , update
     )
 
 
@@ -24,10 +23,3 @@ type Msg
 init : List Toaster
 init =
     []
-
-
-update : Msg -> List Toaster -> List Toaster
-update toasterMsg toasters =
-    case toasterMsg of
-        NoOp ->
-            toasters
