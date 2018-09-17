@@ -1,7 +1,4 @@
-module Toasters exposing
-    ( Model, init, Msg, update
-    , view
-    )
+module Toasters exposing (Model, init, Msg, update)
 
 {-| Module to add Toasters to your app
 
@@ -10,14 +7,8 @@ module Toasters exposing
 
 @docs Model, init, Msg, update
 
-
-# Add to your view
-
-@docs view
-
 -}
 
-import Html exposing (Html)
 import Toasters.Internal as Internal
 
 
@@ -67,20 +58,3 @@ type Msg
 update : Msg -> Model -> Model
 update (InternalMsg internalMsg) (Model toasters) =
     Model <| Internal.update internalMsg toasters
-
-
-{-| Add to your view function.
-
-    div
-        []
-        [ Toasters.view model.toasters
-            |> Html.map ToastersMsg
-        , div
-            []
-            [ text "My Cool App" ]
-        ]
-
--}
-view : Model -> Html Msg
-view (Model toasters) =
-    Internal.view toasters |> Html.map InternalMsg
