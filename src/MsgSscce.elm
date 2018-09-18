@@ -1,4 +1,4 @@
-module Toasters exposing (Msg, InternalMsg)
+module MsgSscce exposing (Msg, InternalMsg)
 
 {-| Test nested Union Types
 
@@ -9,7 +9,7 @@ module Toasters exposing (Msg, InternalMsg)
 
 -}
 
-import Toasters.Internal as Internal
+import MsgSscce.Internal as Internal
 
 
 {-| -}
